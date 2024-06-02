@@ -1,70 +1,76 @@
 <!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UEFA EURO 2024 Groups</title>
     <link rel="icon" type="image/png" href="./img/euro-2024-logo-favicon.png">
+    <link rel="stylesheet" href="navigation.css">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #1a1a1a;
+            background-color: white;
             color: white;
             margin: 0;
             padding: 0;
+            height: 300vh;
+        }
+
+        main {
+            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-        }
-
-        .container {
-            text-align: center;
-            max-width: 1000px;
-            margin: 20px;
-        }
-
-        header {
-            margin-bottom: 20px;
-        }
-
-        .logo {
-            width: 100px;
         }
 
         .groups {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            flex-direction: column;
+            width: 30%;
+            margin: 20px;
+            gap: 25px;
         }
 
         .group {
-            background-color: #2b2b2b;
+            background-color: #2a2a2a;
             padding: 20px;
             border-radius: 10px;
             cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .group:hover {
+            transform: scale(1.05);
+            background-color: #333;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
 
         .group h2 {
             background-color: #007BFF;
+            text-align: center;
             padding: 10px;
             border-radius: 5px;
+            margin-top: 0;
         }
 
         .group ul {
             list-style: none;
             padding: 0;
+            text-align: center;
         }
 
         .group li {
             display: flex;
             align-items: center;
-            margin: 10px 0;
+            justify-content: center;
+            margin: 15px 0;
         }
 
         .group li img {
-            width: 30px;
-            height: 20px;
-            margin-right: 10px;
+            width: 40px;
+            height: 30px;
+            margin-right: 20px;
         }
 
         .group li a {
@@ -75,11 +81,20 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
+    <header>
+        <a href="home.html">
             <img src="./img/euro-2024-logo.png" alt="UEFA EURO 2024" class="logo">
-            <h1>EURO 2024 GERMANY</h1>
-        </header>
+        </a>
+        <h1>EURO 2024 GERMANY</h1>
+        <nav>
+            <ul>
+                <li><a href="teams.html">Teams</a></li>
+                <li><a href="stadiums.html">Stadiums</a></li>
+                <li><a href="#">History</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
         <div class="groups">
             <div class="group" id="group-a" onclick="navigateToGroup('groupA.html')">
                 <h2>Group A</h2>
@@ -136,8 +151,7 @@
                 </ul>
             </div>
         </div>
-    </div>
-
+    </main>
     <script>
         function navigateToGroup(url) {
             window.location.href = url;
